@@ -4,24 +4,22 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateTags extends Migration
 {
     /**
      * Run the migrations.
-     *Table users {
+     *Table tags {
     id int [primary key]
-    username varchar(50) [not null, unique]
-    password varchar(512) [not null]
+    name varchar(50)
     }
+
      * @return void
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', '50')->unique();
-            $table->string('password', '512');
-            $table->rememberToken();
+            $table->string('name', '50');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tags');
     }
 }

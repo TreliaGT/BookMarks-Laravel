@@ -4,24 +4,25 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateSocialMediaLinks extends Migration
 {
     /**
      * Run the migrations.
-     *Table users {
+     *Table social_media_links {
     id int [primary key]
-    username varchar(50) [not null, unique]
-    password varchar(512) [not null]
+    name varchar(50)
+    tag varchar(255)
+    profile_id int [ref: > profiles.user_id]
     }
      * @return void
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('social_media_links', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', '50')->unique();
-            $table->string('password', '512');
-            $table->rememberToken();
+            $table->string('name', '50');
+            $table->string('tag','255');
+            $table->integer('profile_id');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('social_media_links');
     }
 }
