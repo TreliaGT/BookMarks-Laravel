@@ -10,11 +10,11 @@ class CreateProfiles extends Migration
      * Run the migrations.
      *
     Table profiles {
-    user_id int [primary key, ref: > users.id]
-    photo varchar(255)
+    user_id int [primary key, ref: - users.id]
+    photo text // URI or Base64 encoded?
     email varchar(320)
-    first_name varchar(255)
-    last_name varchar(255)
+    first_name varchar(128)
+    last_name varchar(128)
     }
      * @return void
      */
@@ -24,8 +24,8 @@ class CreateProfiles extends Migration
             $table->bigIncrements('id');
             $table->text('photo');
             $table->string('email', '320');
-            $table->string('first_name', '255');
-            $table->string('last_name', '255');
+            $table->string('first_name', '128');
+            $table->string('last_name', '128');
             $table->timestamps();
         });
     }

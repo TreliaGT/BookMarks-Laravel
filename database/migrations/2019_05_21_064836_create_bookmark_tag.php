@@ -18,10 +18,8 @@ class CreateBookmarkTag extends Migration
     public function up()
     {
         Schema::create('bookmark_tag', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->integer('bookmark_id');
             $table->integer('tag_id');
-            $table->timestamps();
         });
     }
 

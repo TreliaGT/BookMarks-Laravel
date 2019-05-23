@@ -11,7 +11,7 @@ class CreateSocialMediaLinks extends Migration
      *Table social_media_links {
     id int [primary key]
     name varchar(50)
-    tag varchar(255)
+    url varchar(512)
     profile_id int [ref: > profiles.user_id]
     }
      * @return void
@@ -21,7 +21,7 @@ class CreateSocialMediaLinks extends Migration
         Schema::create('social_media_links', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', '50');
-            $table->string('tag','255');
+            $table->string('url','512');
             $table->integer('profile_id');
             $table->timestamps();
         });

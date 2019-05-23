@@ -9,20 +9,24 @@ class CreateBookmarks extends Migration
     /**
      * Run the migrations.
      *
-     * Table bookmarks {
-     * id int [primary key]
-     * description varchar(255)
-     * thumbnail varchar(255)
-     * user_id int [ref: > users.id]
-     * }
+    Table bookmarks {
+    id int [primary key]
+    title varchar(255)
+    url varchar(512)
+    description text
+    thumbnail text // URI or Base64 encoded?
+    user_id int [ref: > users.id]
+    }
      * @return void
      */
     public function up()
     {
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('description', '255');
-            $table->string('thumbnail', '255');
+            $table->string('title', '255');
+            $table->string('url', '512');
+            $table->text('description');
+            $table->text('thumbnail');
             $table->integer('user_id');
             $table->timestamps();
         });
