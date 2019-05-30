@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -52,8 +52,17 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="FirstName" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="FirstName" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }} <span> optional </span></label>
 
                             <div class="col-md-6">
                                 <input id="FirstName" type="text" class="form-control @error('FirstName') is-invalid @enderror" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="FirstName">
@@ -66,10 +75,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="LastName" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                            <label for="LastName" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }} <span> optional </span></label>
 
                             <div class="col-md-6">
-                                <input id="LastName" type="email" class="form-control @error('LastName') is-invalid @enderror" name="LastName" value="{{ old('LastName') }}" required autocomplete="LastName">
+                                <input id="LastName" type="text" class="form-control @error('LastName') is-invalid @enderror" name="LastName" value="{{ old('LastName') }}" required autocomplete="LastName">
 
                                 @error('LastName')
                                 <span class="invalid-feedback" role="alert">
@@ -79,13 +88,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
