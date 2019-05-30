@@ -22,10 +22,10 @@ class CreateProfiles extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('photo');
+            $table->text('photo')->nullable();
             $table->string('email', '320');
-            $table->string('first_name', '128');
-            $table->string('last_name', '128');
+            $table->string('first_name', '128')->nullable();
+            $table->string('last_name', '128')->nullable();
             $table->timestamps();
         });
     }
