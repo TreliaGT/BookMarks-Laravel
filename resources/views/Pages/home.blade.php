@@ -15,6 +15,11 @@
                     @endif
 
                     You are logged in!
+                        @role('Admin')
+                        <p>I am a admin!<p>
+                            @else
+                                <p> Welcome to the Bookmark program</p>
+                            @endrole
                 </div>
             </div>
         </div>

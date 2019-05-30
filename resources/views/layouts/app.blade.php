@@ -50,22 +50,18 @@
                                 </li>
                             @endif
                         @else
-                            <li class="dropdown">
-                                    <div class="dropdown show">
                                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <div>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}}</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                {{ __('Logout') }}</a>
                                         </div>
-                                    </div>
+
                             </li>
                         @endguest
                     </ul>
