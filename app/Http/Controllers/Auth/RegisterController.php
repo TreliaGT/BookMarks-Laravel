@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -66,17 +69,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-   /*   return Profiles::create([
-            'email' => $data['email'],
-            'first_name' => $data['FirstName'],
-           'last_name' =>$data['LastName'],
-        ]);*/
-       return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'password' => Hash::make($data['password']),
         ]);
 
-        //  $user->user()->assignRole('User');
+        Profile::create([
+            'email' => $data['email'],
+            'first_name' => $data['FirstName'],
+           'last_name' =>$data['LastName'],
+            'user_id' => $user->id,
+        ]);
+        $user->assignRole('User');
+        return $user;
     }
 }

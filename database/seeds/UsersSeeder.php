@@ -16,9 +16,5 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('APassword!'),
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'Guest',
-            'password' => bcrypt('Password!'),
-        ]);
     }
 }

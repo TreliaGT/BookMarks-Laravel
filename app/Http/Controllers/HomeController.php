@@ -36,7 +36,7 @@ class HomeController extends Controller
         $role = Role::Find(2);
         $permission = Permission::Find(2);
         $role->givePermissionTo($permission);*/
-      //auth()->user()->assignRole('Admin');
+     // auth()->user()->assignRole('Admin');
        //auth()->user()->assignRole('User');
         return view('Pages.home');
     }
