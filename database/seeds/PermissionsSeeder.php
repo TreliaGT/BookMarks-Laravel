@@ -40,7 +40,7 @@ class PermissionsSeeder extends Seeder
         'role_id' => 2,
         ]);
 
-        DB::table('model_has_roles')->inster([
+        DB::table('model_has_roles')->insert([
             'role_id' => 1,
             'model_type' => 'App\User',
             'model_id' => 1,
