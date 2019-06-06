@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-
+use App\Profile;
+use Auth;
+use Image;
 class HomeController extends Controller
 {
     /**
@@ -38,6 +40,28 @@ class HomeController extends Controller
         $role->givePermissionTo($permission);*/
      // auth()->user()->assignRole('Admin');
        //auth()->user()->assignRole('User');
+
         return view('Pages.home');
     }
+
+    public function profile(){
+
+        $user = array('user' => Auth::user());
+      // dd( $user->profile()->avatar);
+        return view('Pages.profile', $user);
+    }
+
+    public function update_UserImage(Request $request){
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time(). '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/' . $filename));
+            $user = Auth::user();
+            $user->profile()->update(['avatar' => $filename]);
+
+        }
+        $user = array('user' => Auth::user());
+        return view('Pages.profile', $user);
+    }
+
 }
