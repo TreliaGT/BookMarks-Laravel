@@ -10,7 +10,11 @@ class profile extends Model
     'email', 'first_name','last_name', 'user_id'];
 
     public function user()
-    {
-        return $this->belongsTo('App\User');
+{
+    return $this->belongsTo('App\User');
+}
+
+    public function social_media(){
+        return $this->hasMany('App\SocialMedia');
     }
 }
