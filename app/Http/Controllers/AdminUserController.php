@@ -13,7 +13,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = user::all();
+        $users = user::with('profile')->get();
         return view(
             'Users.index', compact('users')
         );

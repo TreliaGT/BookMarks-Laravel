@@ -58,7 +58,6 @@ class HomeController extends Controller
             Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/' . $filename));
             $user = Auth::user();
             $user->profile()->update(['avatar' => $filename]);
-
         }
         $user = array('user' => Auth::user());
         return view('Pages.profile', $user);
