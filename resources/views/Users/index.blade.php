@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Users List</div>
                     <div class="card-body">
-                        <table class="table table-striped">
+                        <table class="table table-striped table-responsive-sm table-responsive-md">
                             <tr>
                                 <th>Id</th>
                                 <th>Username</th>
@@ -24,7 +24,7 @@
                                     <td><p> {{$user->Profile->first_name}}  {{$user->profile->last_name }}</p></td>
                                     <td><p>{{$user->Profile->email}}</p>
                                     <td>
-                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">Delete Trail</button>
+                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">Delete User</button>
                                     </td>
                                 </tr>
                             @endforeach

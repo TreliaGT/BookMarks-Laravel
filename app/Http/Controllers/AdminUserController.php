@@ -49,6 +49,9 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-
+        $user = User::FindOrFail($id);
+        $user->Profile()->delete();
+        $user->delete();
+        return view('Users.index');
     }
 }
