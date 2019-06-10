@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\SocialMediaLink;
 use Illuminate\Http\Request;
 use Auth;
 use App\Profile;
-use App\Social_Media;
 class socialMediaController extends Controller
 {
     /**
@@ -39,7 +39,20 @@ class socialMediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = request()->validate([
+            'name' => ['required'],
+            'url' => ['required'],
+        ]);
+        $user = Auth::user();
+        $profile = Profile::FindOrFail($user->id);
+
+        SocialMediaLink::create([
+            'name' => $request->input('name'),
+            'url' => $request->input('url'),
+            'profile_id' => $profile->id,
+        ]);
+
+        return view('SocialMedia.index', compact('profile'));
     }
 
     /**
@@ -84,6 +97,11 @@ class socialMediaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $socialmedia = SocialMediaLink::FindOrFail($id);
+        $socialmedia->delete();
+        $user = Auth::user();
+        //  dd($user->id);
+        $profile = Profile::FindOrFail($user->id);
+        return view('SocialMedia.index', compact('profile'));
     }
 }

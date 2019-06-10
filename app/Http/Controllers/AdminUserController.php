@@ -51,6 +51,7 @@ class AdminUserController extends Controller
     {
         $user = User::FindOrFail($id);
         $user->Profile()->delete();
+        $user->Profile()->social_media()->delete();
         $user->delete();
         return view('Users.index');
     }

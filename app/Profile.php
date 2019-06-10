@@ -15,6 +15,6 @@ class profile extends Model
 }
 
     public function social_media(){
-        return $this->hasMany('App\SocialMedia');
+        return $this->hasMany('App\SocialMediaLink');
     }
 }
