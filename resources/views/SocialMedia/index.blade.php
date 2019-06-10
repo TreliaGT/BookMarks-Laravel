@@ -27,9 +27,9 @@
                     <div class="card-header">social Media</div>
                     <div class="card-body">
                         @foreach($profile->social_media as $social_media)
-                            <div>
-                                <ul>
-                                    <li> {{$social_media->name}}: {{$social_media->url}}
+                                            <div>
+                                                <ul>
+                                                    <li> {{$social_media->name}}: {{$social_media->url}}
                                         <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
                                             Delete
                                         </button>

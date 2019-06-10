@@ -13,7 +13,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = user::with('profile')->get();
+        $users = User::with('profile')->get();
+
         return view(
             'Users.index', compact('users')
         );
@@ -28,7 +29,8 @@ class AdminUserController extends Controller
      */
     public function show($id)
     {
-
+        $user = User::findOrFail($id);
+        return view('Users.show', compact('user'));
     }
 
     /**

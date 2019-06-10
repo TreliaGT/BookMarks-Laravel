@@ -13,18 +13,24 @@
                                 <th>Username</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Details</th>
                                 <th>Delete</th>
                             </tr>
                             @foreach ($users as $user)
                                 <tr>
                                     <td><p>{{$user->id}}</p></td>
-                                    <td><img src="/uploads/avatars/{{ $user->profile->avatar}}"
-                                             style="width:30px; height:30px;">{{$user->name}}</a>
+                                    <td><img src="/uploads/avatars/{{$user->profile->avatar}}"
+                                             style="width:30px; height:30px;">{{$user->name}}
                                     </td>
-                                    <td><p> {{$user->Profile->first_name}}  {{$user->profile->last_name }}</p></td>
-                                    <td><p>{{$user->Profile->email}}</p>
+                                    <td><p> {{$user->profile->first_name}}  {{$user->profile->last_name }}</p></td>
+                                    <td><p>{{$user->profile->email}}</p>
                                     <td>
-                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">Delete User</button>
+                                        <a href="/users/{{$user->id}}">View Details</a>
+                                    </td>
+                                    <td>
+                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
+                                            Delete User
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -47,7 +53,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                Are you sure you wish to delete this user?
+                    Are you sure you wish to delete this user?
                 </div>
 
                 <!-- Modal footer -->

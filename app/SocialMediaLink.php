@@ -10,7 +10,7 @@ class SocialMediaLink extends Model
         'name', 'url', 'profile_id'
     ];
 
-    public function Profile()
+    public function profile()
     {
         return $this->belongsTo('App\Profile');
     }
