@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');
-Route::post('/profile', 'HomeController@update_UserImage')->middleware('auth');
-Route::post('/profile/social', 'HomeController@CreateSocial')->middleware('auth');
 Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admin']);
+Route::resource('profile/social', 'socialMediaController')->middleware('auth');
+Route::resource('profile', 'ProfileController')->middleware('auth');
