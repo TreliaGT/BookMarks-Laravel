@@ -33,9 +33,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+                    <li> <a class="nav-link" href="{{ url('/home') }}">Home</a></li>
                     @role('Admin')
-                  <li> <a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                  <li> <a class="nav-link" href="{{ url('/users') }}">Users List</a></li>
                     @endrole
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

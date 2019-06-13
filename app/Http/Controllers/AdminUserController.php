@@ -13,7 +13,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = user::all();
+        $users = user::with('profile')->get();
         return view(
             'Users.index', compact('users')
         );
@@ -49,6 +49,9 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-
+        $user = User::FindOrFail($id);
+        $user->Profile()->delete();
+        $user->delete();
+        return view('Users.index');
     }
 }
