@@ -13,7 +13,7 @@
                                         <img src="/uploads/avatars/{{$user->profile->avatar}}"
                                              style="width:30px; height:30px;">
                                         {{$user->name}}</a></li>
-                                <li><p> {{$user->profile->first_name}}  {{$user->profile->last_name}}</p></li>
+                                <li><p>{{$user->profile->first_name}}  {{$user->profile->last_name}}</p></li>
                                 <li><p>{{$user->profile->email}}</p></li>
                             </ul>
                         </div>
