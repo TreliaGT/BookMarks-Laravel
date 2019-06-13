@@ -3,7 +3,16 @@
   <component name="ChangeListManager">
 
     <list default="true" id="e11a18f3-3b3d-4801-b1bf-af96a276710f" name="Default Changelist" comment="">
+
       <change beforePath="$PROJECT_DIR$/Database-Diagram-GT.txt" beforeDir="false" />
+
+
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/resources/views/Users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Users/index.blade.php" afterDir="false" />
+
     </list>
 
     <list default="true" id="e11a18f3-3b3d-4801-b1bf-af96a276710f" name="Default Changelist" comment="" />
@@ -21,13 +30,51 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-<<<<<<< Updated upstream
+
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatabasePorfilio">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="712">
               <caret line="159" lean-forward="true" selection-start-line="19" selection-end-line="159" />
+
+            <state relative-caret-position="411">
+              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/Users/index.blade.php">
+
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <folding>
+                <element signature="e#643#675#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/Pages/profile.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="92" lean-forward="true" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+              <folding>
+                <element signature="e#466#500#0#HTML" expanded="true" />
+              </folding>
+
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-286">
+              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+
+
             </state>
           </provider>
         </entry>
@@ -78,6 +125,15 @@
         <option value="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/Users/index.blade.php" />
+
+
         <option value="$PROJECT_DIR$/database/seeds/UsersSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Pages/profile.blade.php" />
@@ -93,12 +149,14 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/socialMediaController.php" />
         <option value="$PROJECT_DIR$/app/SocialMediaLink.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" />
+
         <option value="$PROJECT_DIR$/resources/views/Users/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/SocialMedia/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Users/show.blade.php" />
 
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/.env" />
+
 
       </list>
     </option>
@@ -278,11 +336,21 @@
   </component>
   <component name="TimeTrackingManager">
 
+
     <option name="totallyTimeSpent" value="48515000" />
+
+    <option name="totallyTimeSpent" value="32579000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+
+    <option name="totallyTimeSpent" value="37305000" />
+
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
+
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498366" visible="true" weight="0.30277187" />
 
@@ -513,7 +581,13 @@
       </provider>
     </entry>
 
+
     <entry file="file://$PROJECT_DIR$/app/Social_Media_Link.php">
+
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="15" selection-end-column="5" />
@@ -541,6 +615,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="81" column="11" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="81" selection-end-column="11" />
@@ -659,8 +734,17 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
 
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="357">
           <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+
+
+        <state relative-caret-position="323">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+
+        <state relative-caret-position="-286">
+          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+
         </state>
       </provider>
     </entry>
@@ -669,6 +753,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DatabasePorfilio">
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="712">
           <caret line="159" lean-forward="true" selection-start-line="19" selection-end-line="159" />
 
@@ -683,12 +768,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="706">
           <caret line="82" column="13" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
+
+        <state relative-caret-position="411">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+
+
           <folding>
             <element signature="e#45#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/app/Profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -700,6 +791,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="39" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="39" />
+
+    <entry file="file://$PROJECT_DIR$/resources/views/Pages/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="92" lean-forward="true" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+          <folding>
+            <element signature="e#466#500#0#HTML" expanded="true" />
+          </folding>
+
         </state>
       </provider>
     </entry>
