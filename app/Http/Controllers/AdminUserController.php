@@ -73,6 +73,6 @@ class AdminUserController extends Controller
             $user->delete();
         }
 
-        return redirect('Users.index');
+        return redirect('/users');
     }
 }
