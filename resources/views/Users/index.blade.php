@@ -27,12 +27,16 @@
                                     <td>
                                         <a href="/users/{{$user->id}}">View Details</a>
                                     </td>
+                                    @if($user->name == 'Admin')
+
+                                    @else
                                     <td>
                                         <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
                                             Delete
                                         </button>
                                     </td>
                                 </tr>
+                                @endif
                             @endforeach
                         </table>
                     </div>
