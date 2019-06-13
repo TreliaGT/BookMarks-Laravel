@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\profile;
 use App\Social_Media;
+use App\User;
 use Image;
 use Auth;
 class ProfileController extends Controller
@@ -55,13 +56,18 @@ class ProfileController extends Controller
         $request->validate([
             'firstname' => ['required'],
             'lastname' => ['required'],
-            'email' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
         ]);
 
         $profile = Profile::find($id);
+        $user = User::Find($profile->user_id);
+        $user->name = $request->get('name');
+        $user->save();
         $profile->first_name = $request->get('firstname');
         $profile->last_name = $request->get('lastname');
         $profile->email = $request->get('email');
+
         $profile->save();
         return redirect('/profile');
     }
