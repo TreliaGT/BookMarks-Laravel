@@ -5,38 +5,32 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Users List</div>
+                    <div class="card-header">User's BookMarks</div>
                     <div class="card-body">
                         <table class="table table-striped table-responsive-sm table-responsive-md">
                             <tr>
                                 <th>Id</th>
-                                <th>Username</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>title</th>
+                                <th>thumbnail</th>
                                 <th>Details</th>
                                 <th>Delete</th>
                             </tr>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td><p>{{$user->id}}</p></td>
-                                    <td><img src="/uploads/avatars/{{$user->profile->avatar}}"
-                                             style="width:30px; height:30px;">{{$user->name}}
-                                    </td>
-                                    <td><p> {{$user->profile->first_name}}  {{$user->profile->last_name }}</p></td>
-                                    <td><p>{{$user->profile->email}}</p>
-                                    <td>
-                                        <a href="/users/{{$user->id}}">View Details</a>
-                                    </td>
-                                    <td>
-                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
-                                            Delete User
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
+                        @foreach($bookmarks as $bookmark)
+                            <tr>
+                                <td>{{$bookmark->id}}</td>
+                                <td>{{$bookmark->title}}</td>
+                                <td>{{$bookmark->thumbnail}}</td>
+                                <td>
+                                    <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
+                                </td>
+                                <td>
+                                    <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
+                                        Delete User
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </div>
-
                 </div>
             </div>
         </div>
@@ -59,7 +53,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form action="{{url('/users', [$user->id])}}" method="POST">
+                    <form action="{{url('/Bookmarks', [$bookmark->id])}}" method="POST">
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
                         <input type="submit" class="button alert float-right" value="Delete"/>

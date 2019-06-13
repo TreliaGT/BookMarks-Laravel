@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\profile;
-use App\Social_Media;
 use App\User;
 use Image;
 use Auth;
+use File;
 class ProfileController extends Controller
 {
 
@@ -20,15 +20,28 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+        $profile = Profile::FindOrFail($user->id);
         if ($request->hasFile('avatar')) {
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
-            $user = Auth::user();
-            $user->profile()->update(['avatar' => $filename]);
+
+            if( $profile->avatar == 'default.jpg') {
+                $avatar = $request->file('avatar');
+                $filename = time() . '.' . $avatar->getClientOriginalExtension();
+                Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
+                $profile->avatar = $filename;
+                $profile->save();
+            }else{
+                $image = public_path('/uploads/avatars/' . $profile->avatar);
+                File::delete($image);
+                $avatar = $request->file('avatar');
+                $filename = time() . '.' . $avatar->getClientOriginalExtension();
+                Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/' . $filename));
+                $profile->avatar = $filename;
+                $profile->save();
+            }
         }
-        $user = array('user' => Auth::user());
-        return view('Profile.profile', $user);
+
+        return redirect('Profile.profile');
     }
 
     /**

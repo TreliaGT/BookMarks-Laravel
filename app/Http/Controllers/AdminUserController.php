@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\SocialMediaLink;
 use Illuminate\Http\Request;
 use App\User;
+use App\profile;
 class AdminUserController extends Controller
 {
     /**
@@ -52,9 +54,20 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         $user = User::FindOrFail($id);
-        $user->Profile()->delete();
-        $user->Profile()->social_media()->delete();
-        $user->delete();
-        return view('Users.index');
+        $profile = Profile::FindOrFail($user->id);
+        if( $profile->avatar = 'default.jpg') {
+            $profile->social_media()->delete();
+            $profile->delete();
+            $user->delete();
+        }
+        else {
+            $image = public_path('/upload/avatar/' . $profile->avatar);
+            File::delete($image);
+            $profile->social_media()->delete();
+            $profile->delete();
+            $user->delete();
+        }
+
+        return redirect('Users.index');
     }
 }

@@ -24,6 +24,11 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasOne('App\Profile');
     }
+
+    public function bookmark(){
+        return $this->hasMany('App\Bookmark');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
