@@ -29,7 +29,7 @@
                                     </td>
                                     <td>
                                         <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
-                                            Delete User
+                                            Delete
                                         </button>
                                     </td>
                                 </tr>

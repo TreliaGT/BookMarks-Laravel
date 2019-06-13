@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admin']);
+Route::get('/Bookmarks/AdminView', 'AdminUserController@AdminViewBookmarks')->middleware(['auth', 'role:Admin']);
 Route::resource('profile/social', 'socialMediaController')->middleware('auth');
 Route::resource('profile', 'ProfileController')->middleware('auth');
 Route::resource('/Bookmarks', 'BookmarksController')->middleware('auth');

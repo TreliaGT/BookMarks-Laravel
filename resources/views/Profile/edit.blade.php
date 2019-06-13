@@ -28,7 +28,6 @@
                             <labal for="email" class="col-form-label">Email</labal>
                             <input class="form-control" type="email" name="email" value="{{$profile->email}}">
                         </div>
-
                         <button type="submit" class="btn btn-success float-right">Update</button>
                     </form>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookmark;
 use App\SocialMediaLink;
 use Illuminate\Http\Request;
 use App\User;
@@ -22,6 +23,10 @@ class AdminUserController extends Controller
         );
     }
 
+    public function AdminViewBookmarks(){
+        $bookmarks = Bookmark::all();
+        return view('Bookmarks.index', compact('bookmarks'));
+    }
 
     /**
      * Display the specified resource.

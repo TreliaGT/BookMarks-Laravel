@@ -26,7 +26,7 @@ class CreateBookmarks extends Migration
             $table->string('title', '255');
             $table->string('url', '512');
             $table->text('description');
-            $table->text('thumbnail');
+            $table->string('thumbnail')->default('default.jpg');;
             $table->integer('user_id');
             $table->timestamps();
         });
