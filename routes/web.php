@@ -23,3 +23,4 @@ Route::get('/Bookmarks/AdminView', 'AdminUserController@AdminViewBookmarks')->mi
 Route::resource('profile/social', 'socialMediaController')->middleware('auth');
 Route::resource('profile', 'ProfileController')->middleware('auth');
 Route::resource('/Bookmarks', 'BookmarksController')->middleware('auth');
+Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin']);

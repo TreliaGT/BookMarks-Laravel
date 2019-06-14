@@ -20,7 +20,6 @@
                                 <th>User</th>
                                 @endrole
                                 <th>Details</th>
-                                <th>Delete</th>
                             </tr>
                             @foreach($bookmarks as $bookmark)
                                 <tr>
@@ -34,38 +33,8 @@
                                     <td>
                                         <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
                                     </td>
-                                    <td>
-                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
-                                            Delete
-                                        </button>
-                                    </td>
                                 </tr>
-                                <div class="modal fade" id="delete">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
 
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Delete Bookmark</h4>
-                                                <button type="button" class="close" data-dismiss="modal">×</button>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                Are you sure you wish to delete this Bookmark?
-                                            </div>
-
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                                <form action="{{url('/Bookmarks', [$bookmark->id])}}" method="POST">
-                                                    {{method_field('DELETE')}}
-                                                    {{csrf_field()}}
-                                                    <input type="submit" class="button alert float-right" value="Delete"/>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             @endforeach
                         </table>
                     </div>
