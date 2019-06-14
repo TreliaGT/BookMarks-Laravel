@@ -139,8 +139,8 @@ class BookmarksController extends Controller
      */
     public function destroy($id)
     {
-       $book = Bookmark::FindOrFail($id);
-       $book->delete();
+        $book = Bookmark::FindOrFail($id);
+        $book->delete();
         return redirect('/Bookmarks');
     }
 }
