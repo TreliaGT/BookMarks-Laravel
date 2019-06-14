@@ -41,6 +41,9 @@ class BookmarksController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $user = Auth::user();
         $validated = request()->validate([
             'title' => ['required' , 'max:255'],
@@ -62,7 +65,8 @@ class BookmarksController extends Controller
             $bookmark->thumbnail = $filename;
           $bookmark->save();
         }
-
+        $tags = explode(',', $request->input('tag'));
+        $bookmark->retag($tags);
         return redirect('/Bookmarks');
     }
 
@@ -127,7 +131,10 @@ class BookmarksController extends Controller
                 $bookmark->thumbnail = $filename;
             }
         }
+
         $bookmark->save();
+        $tags = explode(',', $request->input('tag'));
+        $bookmark->retag($tags);
         return redirect('/Bookmarks');
     }
 
@@ -140,6 +147,7 @@ class BookmarksController extends Controller
     public function destroy($id)
     {
         $book = Bookmark::FindOrFail($id);
+        $book->detag();
         $book->delete();
         return redirect('/Bookmarks');
     }

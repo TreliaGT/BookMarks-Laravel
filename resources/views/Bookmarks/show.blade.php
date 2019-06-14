@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{$bookmark->title}}
                         <div class="float-right list-inline nav">
-                            <a href="/Bookmarks/{{$bookmark->id}}/edit"  class="nav-link ">Edit</a>
+                            <a href="/Bookmarks/{{$bookmark->id}}/edit" class="nav-link ">Edit</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -28,14 +28,25 @@
                                          style="width:100px; height:100px;"></td>
                                 <td>{{$bookmark->description}}</td>
                                 @role('Admin')
-                                <td>{{$bookmark->user->name}} <img src="/uploads/avatars/{{$bookmark->user->profile->avatar}}"
-                                                                   style="width:30px; height:30px;"> </td>
+                                <td>{{$bookmark->user->name}} <img
+                                            src="/uploads/avatars/{{$bookmark->user->profile->avatar}}"
+                                            style="width:30px; height:30px;"></td>
                                 @endrole
                             </tr>
                         </table>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"> Tags</div>
+                        <div class="card-body">
+                            <ul>
+                                @foreach($bookmark->tags as $tags)
+                                    <li>{{$tags->name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+@endsection
