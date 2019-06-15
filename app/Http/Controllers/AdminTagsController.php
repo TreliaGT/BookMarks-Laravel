@@ -19,28 +19,6 @@ class AdminTagsController extends Controller
        return view('Tags.index', compact('tags'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
     /**
      * Display the specified resource.
      *
@@ -53,29 +31,7 @@ class AdminTagsController extends Controller
         return view('Tags.show', compact('tag'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-
-
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -85,9 +41,10 @@ class AdminTagsController extends Controller
      */
     public function destroy($id)
     {
-        $tag = tag::FindorFail($id);
-        $tag->bookmarks()->delete;
+        $tag = Tag::FindorFail($id);
         $tag->delete();
-
+       return redirect('/tags');
     }
+
+
 }

@@ -5,7 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Users List</div>
+                    <div class="card-header">Users List
+                        <div class="float-right list-inline nav">
+                            <a href="/users/{{$user->id}}/edit" class="nav-link ">Edit</a>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <div class="card-columns">
                             <div class="col-lg-2 col-sm-12">
@@ -20,6 +24,7 @@
                                         <th> First Name</th>
                                         <th> Last Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                     </tr>
                                     <tr>
                                         <td>{{$user->id}}</td>
@@ -27,6 +32,7 @@
                                         <td>{{$user->profile->first_name}} </td>
                                         <td>{{$user->profile->last_name }}</td>
                                         <td>{{$user->profile->email}}</td>
+                                        <td>{{ $user->roles()->pluck('name')->implode(' ') }}</td>
                                     </tr>
                                 </table>
                             </div>

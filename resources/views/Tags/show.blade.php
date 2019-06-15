@@ -7,7 +7,6 @@
                 <div class="card">
                     <div class="card-header">{{$tag->name}}
                         <div class="float-right list-inline nav">
-                            <a href="/tags/{{$tag->tag_id}}/edit" class="nav-link ">Edit</a>
                             <button class="nav-link btn alert-danger"  data-toggle="modal" data-target="#delete">
                                 Delete </button>
                         </div>
@@ -17,25 +16,11 @@
                             <tr>
                                 <th>Id</th>
                                 <th>name</th>
+
                             </tr>
                             <tr>
                                 <td><p>{{$tag->tag_id}}</p></td>
                                 <td><p>{{$tag->name}}</p></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="card-header">Bookmarks </div>
-                    <div class="card-body">
-                        <table class="table table-striped table-responsive-sm table-responsive-md">
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                            </tr>
-                            <tr>
-                                @foreach($tag->bookmarks as $bookmark)
-                                <td><p>{{$bookmark->id}}</p></td>
-                                <td><p>{{$bookmark->name}}</p></td>
-                                @endforeach
                             </tr>
                         </table>
                     </div>

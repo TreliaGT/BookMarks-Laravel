@@ -7,6 +7,9 @@ use App\SocialMediaLink;
 use Illuminate\Http\Request;
 use App\User;
 use App\profile;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class AdminUserController extends Controller
 {
     /**
@@ -17,16 +20,12 @@ class AdminUserController extends Controller
     public function index()
     {
         $users = User::with('profile')->get();
-
+        $roles = Role::get();
         return view(
-            'Users.index', compact('users')
+            'Users.index', compact('users', 'roles')
         );
     }
 
-    public function AdminViewBookmarks(){
-        $bookmarks = Bookmark::all();
-        return view('Bookmarks.index', compact('bookmarks'));
-    }
 
     /**
      * Display the specified resource.
@@ -41,6 +40,20 @@ class AdminUserController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $user = User::findOrFail($id); //Get user with specified id
+        $roles = Role::get(); //Get all roles
+
+        return view('Users.edit', compact('user', 'roles'));
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -49,6 +62,23 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::findorFail($id);
+        if($request->get('password') != "") {
+            $this->validate($request, [
+                'password' => 'min:6|confirmed'
+            ]);
+            $user->password = Hash::make($request->get('password'));
+        }
+        $roles = $request['roles'];
+        if (isset($roles)) {
+
+            $user->roles()->sync($roles);  //If one or more role is selected associate user to roles
+        }
+        else {
+
+            $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
+        }
+        return redirect('/users');
     }
     /**
      * Remove the specified resource from storage.

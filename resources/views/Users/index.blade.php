@@ -13,6 +13,7 @@
                                 <th>Username</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Role</th>
                                 <th>Details</th>
                                 <th>Delete</th>
                             </tr>
@@ -24,6 +25,7 @@
                                     </td>
                                     <td><p> {{$user->profile->first_name}}  {{$user->profile->last_name }}</p></td>
                                     <td><p>{{$user->profile->email}}</p>
+                                    <td>{{ $user->roles()->pluck('name')->implode(' ') }}</td>
                                     <td>
                                         <a href="/users/{{$user->id}}">View Details</a>
                                     </td>

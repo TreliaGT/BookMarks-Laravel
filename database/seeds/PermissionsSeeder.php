@@ -21,12 +21,22 @@ class PermissionsSeeder extends Seeder
             'guard_name' =>'web',
         ]);
 
+        DB::table('permissions')->insert([
+            'name' => 'Ban Access',
+            'guard_name' =>'web',
+        ]);
+
         DB::table('roles')->insert([
             'name' => 'Admin',
             'guard_name' =>'web',
         ]);
         DB::table('roles')->insert([
             'name' => 'User',
+            'guard_name' =>'web',
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'Ban',
             'guard_name' =>'web',
         ]);
 
