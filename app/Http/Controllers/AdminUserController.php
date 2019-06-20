@@ -20,6 +20,7 @@ class AdminUserController extends Controller
     public function index()
     {
         $users = User::with('profile')->get();
+
         $roles = Role::get();
         return view(
             'Users.index', compact('users', 'roles')

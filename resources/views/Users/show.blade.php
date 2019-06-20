@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Users List
-                        @if($user->id == 1)
+                        @if($user->name == 'Admin')
 
                          @else
                         <div class="float-right list-inline nav">

@@ -34,8 +34,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li> <a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                    @hasanyrole('UserAdmin|Admin')
+                    <li> <a class="nav-link" href="{{ url('/users') }}">Users List</a></li>
+                    @endrole
                     @role('Admin')
-                  <li> <a class="nav-link" href="{{ url('/users') }}">Users List</a></li>
                     <li> <a class="nav-link" href="{{ url('/Bookmarks/AdminView') }}">BookMarks</a></li>
                     <li> <a class="nav-link" href="{{ url('/tags') }}">Tags</a></li>
                     @endrole

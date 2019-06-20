@@ -20,8 +20,8 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td><p>{{$user->id}}</p></td>
-                                    <td><img src="/uploads/avatars/{{$user->profile->avatar}}"
-                                             style="width:30px; height:30px;">{{$user->name}}
+                                    <td><img src="/uploads/avatars/{{$user->profile->avatar}}" style="width:30px; height:30px;">
+                                        {{$user->name}}
                                     </td>
                                     <td><p> {{$user->profile->first_name}}  {{$user->profile->last_name }}</p></td>
                                     <td><p>{{$user->profile->email}}</p>

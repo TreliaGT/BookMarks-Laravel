@@ -21,5 +21,15 @@ class UsersSeeder extends Seeder
             'user_id' => 1,
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'UserAdmin',
+            'password' => bcrypt('UAPassword!'),
+        ]);
+
+        DB::table('profiles')->insert([
+            'email' => 'Useradmin@admin.com',
+            'user_id' => 2,
+        ]);
+
     }
 }

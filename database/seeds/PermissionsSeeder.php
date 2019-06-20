@@ -26,6 +26,12 @@ class PermissionsSeeder extends Seeder
             'guard_name' =>'web',
         ]);
 
+        DB::table('permissions')->insert([
+            'name' => 'UserAdmin Access',
+            'guard_name' =>'web',
+        ]);
+
+
         DB::table('roles')->insert([
             'name' => 'Admin',
             'guard_name' =>'web',
@@ -39,6 +45,10 @@ class PermissionsSeeder extends Seeder
             'name' => 'Ban',
             'guard_name' =>'web',
         ]);
+        DB::table('roles')->insert([
+            'name' => 'UserAdmin',
+            'guard_name' =>'web',
+        ]);
 
         DB::table('role_has_permissions')->insert([
         'permission_id' => 1,
@@ -50,12 +60,26 @@ class PermissionsSeeder extends Seeder
         'role_id' => 2,
         ]);
 
+        DB::table('role_has_permissions')->insert([
+            'permission_id' => 3,
+            'role_id' => 3,
+        ]);
+
+        DB::table('role_has_permissions')->insert([
+            'permission_id' => 4,
+            'role_id' => 4,
+        ]);
+
         DB::table('model_has_roles')->insert([
             'role_id' => 1,
             'model_type' => 'App\User',
             'model_id' => 1,
         ]);
 
-
+        DB::table('model_has_roles')->insert([
+            'role_id' => 4,
+            'model_type' => 'App\User',
+            'model_id' => 2,
+        ]);
     }
 }

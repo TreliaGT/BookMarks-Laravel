@@ -15,8 +15,8 @@
                         @endif
 
                         You are logged in!
-                        @role('Admin')
-                        <p>I am a admin!<p>
+                            @hasanyrole('UserAdmin|Admin')
+                        <p>Hello Admin<p>
                                 @else
                                 @role('Ban')
                             <p>Sorry, you were ban and won't be able to access anything</p>
