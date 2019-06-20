@@ -11,15 +11,15 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <labal for="title">Title</labal>
-                                <input type="text" name="title" class="form-control" >
+                                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                             </div>
                             <div class="form-group">
                                 <labal for="url">Url</labal>
-                                <input type="url" name="url" class="form-control">
+                                <input type="url" name="url" class="form-control" value="{{ old('url') }}">
                             </div>
                             <div class="form-group">
                                 <labal for="description">Description</labal>
-                                <textarea class="form-control" name="description"></textarea>
+                                <textarea class="form-control" name="description">{{ old('description') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <labal for="tag" data-toggle="tooltip" data-placement="top" title="Example: book,marks," style="color:blue;">Tag (Optional)</labal>
