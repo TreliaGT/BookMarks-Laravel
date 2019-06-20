@@ -22,5 +22,6 @@ Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admi
 Route::get('/Bookmarks/AdminView', 'AdminUserController@AdminViewBookmarks')->middleware(['auth', 'role:Admin' ]);
 Route::resource('profile/social', 'socialMediaController')->middleware(['auth', 'role:Admin|User']);
 Route::resource('profile', 'ProfileController')->middleware(['auth', 'role:Admin|User|UserAdmin']);
+Route::post('PasswordUpdate/{{$profile->id}}', 'ProfileController@PasswordUpdate')->middleware(['auth', 'role:Admin|User|UserAdmin']);
 Route::resource('/Bookmarks', 'BookmarksController')->middleware(['auth', 'role:Admin|User']);
 Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin']);

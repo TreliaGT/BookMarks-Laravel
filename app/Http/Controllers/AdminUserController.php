@@ -70,6 +70,7 @@ class AdminUserController extends Controller
             ]);
             $user->password = Hash::make($request->get('password'));
         }
+
         $roles = $request['roles'];
         if (isset($roles)) {
 
@@ -79,6 +80,7 @@ class AdminUserController extends Controller
 
             $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
         }
+        $user->save();
         return redirect('/users');
     }
     /**

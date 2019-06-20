@@ -3,7 +3,6 @@
 @section('content')
     <div class="container">
         <div class="col-12">
-
             <div class="card">
                 <div class="card-header"> Edit Profile</div>
                 <div class="card-body">
@@ -27,6 +26,29 @@
                         <div class="form-group">
                             <labal for="email" class="col-form-label">Email</labal>
                             <input class="form-control" type="email" name="email" value="{{$profile->email}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">{{ __('Password') }}</label>
+
+
+                            <input id="password" type="password"
+                                   class="form-control @error('password') is-invalid @enderror" name="password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+                        </div>
+                        <div class="form-group">
+                            <label for="password-confirm"
+                                   class=" col-form-label ">{{ __('Confirm Password') }}</label>
+
+
+                            <input id="password-confirm" type="password" class="form-control"
+                                   name="password_confirmation">
+
                         </div>
                         <button type="submit" class="btn btn-success float-right">Update</button>
                     </form>

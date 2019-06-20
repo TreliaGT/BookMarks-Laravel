@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\profile;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Image;
 use Auth;
 use File;
@@ -76,11 +77,17 @@ class ProfileController extends Controller
         $profile = Profile::find($id);
         $user = User::Find($profile->user_id);
         $user->name = $request->get('name');
-        $user->save();
         $profile->first_name = $request->get('firstname');
         $profile->last_name = $request->get('lastname');
         $profile->email = $request->get('email');
 
+        if($request->get('password') != "") {
+            $this->validate($request, [
+                'password' => 'min:6|confirmed'
+            ]);
+            $user->password = Hash::make($request->get('password'));
+        }
+        $user->save();
         $profile->save();
         return redirect('/profile');
     }
