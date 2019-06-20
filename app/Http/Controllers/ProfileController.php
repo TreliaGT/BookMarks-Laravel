@@ -80,7 +80,6 @@ class ProfileController extends Controller
         $user->email = $request->get('email');
         $profile->first_name = $request->get('firstname');
         $profile->last_name = $request->get('lastname');
-        $profile->email = $request->get('email');
 
         if($request->get('password') != "") {
             $this->validate($request, [

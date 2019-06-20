@@ -27,7 +27,13 @@ class AdminUserController extends Controller
         );
     }
 
-
+    /**
+     * Shows all bookmarks
+     */
+    public function AdminViewBookmarks(){
+        $bookmarks = Bookmark::all();
+        return view('Bookmarks.index', compact('bookmarks'));
+    }
     /**
      * Display the specified resource.
      *
