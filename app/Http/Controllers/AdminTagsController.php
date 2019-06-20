@@ -46,5 +46,18 @@ class AdminTagsController extends Controller
        return redirect('/tags');
     }
 
+    /**
+     * Deletes all unsured tags
+     */
+    public function DeleteAll(){
+        $service = app(\Cviebrock\EloquentTaggable\Services\TagService::class);
+       $tags = $service->getAllUnusedTags();
+      // dd($tags);
+        foreach ($tags as $tag) {
+            $tag->delete();
+        }
+
+        return redirect('/tags');
+    }
 
 }

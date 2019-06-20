@@ -25,9 +25,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
     <div class="modal fade" id="delete">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -45,7 +43,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form action="{{url('/tags', [$tag->tag_id])}}" method="POST">
+                    <form action="{{route('.update'}}" method="POST">
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
                         <input type="submit" class="button alert float-right" value="Delete"/>

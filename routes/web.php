@@ -18,10 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admin|UserAdmin']);
 Route::get('/Bookmarks/AdminView', 'AdminUserController@AdminViewBookmarks')->middleware(['auth', 'role:Admin' ]);
+
+Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admin|UserAdmin']);
 Route::resource('profile/social', 'socialMediaController')->middleware(['auth', 'role:Admin|User']);
 Route::resource('profile', 'ProfileController')->middleware(['auth', 'role:Admin|User|UserAdmin']);
-Route::post('PasswordUpdate/{{$profile->id}}', 'ProfileController@PasswordUpdate')->middleware(['auth', 'role:Admin|User|UserAdmin']);
 Route::resource('/Bookmarks', 'BookmarksController')->middleware(['auth', 'role:Admin|User']);
 Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin']);
+
+Route::post('/tags/deleteAll', 'AdminTagsController@DeleteAll')->middleware(['auth', 'role:Admin']);
