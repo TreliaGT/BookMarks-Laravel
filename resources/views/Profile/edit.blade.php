@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <labal for="email" class="col-form-label">Email</labal>
-                            <input class="form-control" type="email" name="email" value="{{$profile->email}}">
+                            <input class="form-control" type="email" name="email" value="{{$profile->user->email}}">
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-form-label">{{ __('Password') }}</label>

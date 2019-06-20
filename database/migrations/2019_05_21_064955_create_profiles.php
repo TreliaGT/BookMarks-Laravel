@@ -23,7 +23,6 @@ class CreateProfiles extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('avatar')->default('default.jpg');
-            $table->string('email', '320');
             $table->string('first_name', '128')->nullable();
             $table->string('last_name', '128')->nullable();
             $table->bigInteger('user_id');

@@ -77,6 +77,7 @@ class ProfileController extends Controller
         $profile = Profile::find($id);
         $user = User::Find($profile->user_id);
         $user->name = $request->get('name');
+        $user->email = $request->get('email');
         $profile->first_name = $request->get('firstname');
         $profile->last_name = $request->get('lastname');
         $profile->email = $request->get('email');

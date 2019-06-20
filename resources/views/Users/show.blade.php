@@ -35,7 +35,7 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->profile->first_name}} </td>
                                         <td>{{$user->profile->last_name }}</td>
-                                        <td>{{$user->profile->email}}</td>
+                                        <td>{{$user->email}}</td>
                                         <td>{{ $user->roles()->pluck('name')->implode(' ') }}</td>
                                     </tr>
                                 </table>

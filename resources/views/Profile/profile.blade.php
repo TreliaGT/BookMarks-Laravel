@@ -16,7 +16,7 @@
                             <img src="/uploads/avatars/{{$user->profile->avatar}}" style="width:150px; height:150px;">
                         </div>
                         <div class="col-lg-11 col-sm-12">
-                            <p><span class="text-secondary">Email: </span> {{$user->profile->email}}</p>
+                            <p><span class="text-secondary">Email: </span> {{$user->email}}</p>
                             <p><span class="text-secondary">First Name: </span> {{$user->profile->first_name}}</p>
                             <p><span class="text-secondary">Last Name: </span> {{$user->profile->last_name}}</p>
                         </div>
