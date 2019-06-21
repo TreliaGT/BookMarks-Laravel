@@ -25,7 +25,7 @@
                             </tr>
                             <tr>
                                 <td>{{$bookmark->title}}</td>
-                                <td>{{$bookmark->url}}</td>
+                                <td><a href="{{$bookmark->url}}">{{$bookmark->url}} </a></td>
                                 <td><img src="/uploads/bookmarks/{{$bookmark->thumbnail}}"
                                          style="width:100px; height:100px;"></td>
                                 <td>{{$bookmark->description}}</td>
