@@ -43,7 +43,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form action="{{route('.update'}}" method="POST">
+                    <form action="{{url('/tags', [$tag->id])}}" method="POST">
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
                         <input type="submit" class="button alert float-right" value="Delete"/>
