@@ -5,7 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Users List</div>
+                    <div class="card-header">Users List
+                        <div class="float-right list-inline nav">
+                            <form action="users/search" method="POST" role="search">
+                                {{ csrf_field() }}
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="q"
+                                           placeholder="Search Username">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <table class="table table-striped table-responsive-sm table-responsive-md">
                             <tr>
@@ -20,7 +31,8 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td><p>{{$user->id}}</p></td>
-                                    <td><img src="/uploads/avatars/{{$user->profile->avatar}}" style="width:30px; height:30px;">
+                                    <td><img src="/uploads/avatars/{{$user->profile->avatar}}"
+                                             style="width:30px; height:30px;">
                                         {{$user->name}}
                                     </td>
                                     <td><p> {{$user->profile->first_name}}  {{$user->profile->last_name }}</p></td>
@@ -30,11 +42,11 @@
                                         <a href="/users/{{$user->id}}">View Details</a>
                                     </td>
                                     @if($user->name != 'Admin')
-                                    <td>
-                                        <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
-                                            Delete
-                                        </button>
-                                    </td>
+                                        <td>
+                                            <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
+                                                Delete
+                                            </button>
+                                        </td>
                                     @endif
                                 </tr>
                             @endforeach

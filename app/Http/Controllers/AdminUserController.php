@@ -28,6 +28,21 @@ class AdminUserController extends Controller
     }
 
     /**
+     * Search user function
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        $q = $request->input('q');
+        $users = User::where('name', 'LIKE', '%' . $q . '%')->get();
+        $roles = Role::get();
+        return view(
+            'Users.index', compact('users', 'roles')
+        );
+    }
+
+    /**
      * Shows all bookmarks
      */
     public function AdminViewBookmarks(){

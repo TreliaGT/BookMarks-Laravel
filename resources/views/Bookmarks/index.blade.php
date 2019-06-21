@@ -8,6 +8,15 @@
                     <div class="card-header">User's BookMarks
                         <div class="float-right list-inline nav">
                             <a href="/Bookmarks/create" class="nav-link "> Create New Bookmark</a>
+
+                            <form action="Bookmarks/search" method="POST" role="search">
+                                {{ csrf_field() }}
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="q"
+                                           placeholder="Search BookMarks">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="card-body">
@@ -28,7 +37,7 @@
                                     <td><img src="/uploads/bookmarks/{{$bookmark->thumbnail}}"
                                              style="width:100px; height:100px;"></td>
                                     @role('Admin')
-                                   <td>    {{$bookmark->user->name}}</td>
+                                    <td>    {{$bookmark->user->name}}</td>
                                     @endrole
                                     <td>
                                         <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Image;
 use File;
+
 class BookmarksController extends Controller
 {
     /**
@@ -17,11 +18,21 @@ class BookmarksController extends Controller
     public function index()
     {
         $userid = Auth::user();
-       $bookmarks = Bookmark::Where('user_id','=', $userid->id)->get();
+        $bookmarks = Bookmark::Where('user_id', '=', $userid->id)->get();
         return view('Bookmarks.index', compact('bookmarks'));
     }
 
-
+    /**
+     * Search function
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        $q = $request->input('q');
+            $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%')->get();
+            return view('Bookmarks.index', compact('bookmarks'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -36,34 +47,33 @@ class BookmarksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
 
 
-
         $user = Auth::user();
         $validated = request()->validate([
-            'title' => ['required' , 'max:255'],
+            'title' => ['required', 'max:255'],
             'url' => ['required', 'max:512'],
             'description' => ['required'],
 
         ]);
-       $bookmark = Bookmark::Create([
-           'user_id' => $user->id,
-            'title'=> $request->input('title'),
-            'url'=> $request->input('url'),
-        'description'=> $request->input('description'),
-           ]);
+        $bookmark = Bookmark::Create([
+            'user_id' => $user->id,
+            'title' => $request->input('title'),
+            'url' => $request->input('url'),
+            'description' => $request->input('description'),
+        ]);
 
         if ($request->hasFile('thumbnail')) {
             $avatar = $request->file('thumbnail');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/bookmarks/' . $filename));
             $bookmark->thumbnail = $filename;
-          $bookmark->save();
+            $bookmark->save();
         }
         $tags = explode(',', $request->input('tag'));
         $bookmark->retag($tags);
@@ -73,7 +83,7 @@ class BookmarksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -85,7 +95,7 @@ class BookmarksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -97,15 +107,15 @@ class BookmarksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
 
         $request->validate([
-            'title' => ['required' , 'max:255'],
+            'title' => ['required', 'max:255'],
             'url' => ['required', 'max:512'],
             'description' => ['required'],
 
@@ -116,7 +126,7 @@ class BookmarksController extends Controller
         $bookmark->description = $request->get('description');
 
 
-        if($request->hasFile('thumbnail')) {
+        if ($request->hasFile('thumbnail')) {
             if ($bookmark->thumbnail == 'default.jpg') {
                 $img = $request->file('thumbnail');
                 $filename = time() . '.' . $img->getClientOriginalExtension();
@@ -141,7 +151,7 @@ class BookmarksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
