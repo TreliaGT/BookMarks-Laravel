@@ -23,6 +23,7 @@
                             <p>You may also get an email explaining why you have been ban</p>
                         @else
                             <p> Welcome to the Bookmark program</p>
+
                             @endrole
                             @endrole
                     </div>

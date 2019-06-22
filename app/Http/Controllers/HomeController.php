@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookmark;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -28,9 +29,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Pages.home');
+
+        return view('Pages.home' );
     }
 
+    public function Welcome(){
+        $bookmarks = Bookmark::Where('status', '=', 1)->take(5)->get();
+        return view('Pages.welcome', compact('bookmarks'));
+    }
 
 
 }
