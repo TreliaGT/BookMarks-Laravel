@@ -25,9 +25,8 @@
                                 <th>Id</th>
                                 <th>title</th>
                                 <th>thumbnail</th>
-                                @role('Admin')
+                                <th>Status</th>
                                 <th>User</th>
-                                @endrole
                                 <th>Details</th>
                             </tr>
                             @foreach($bookmarks as $bookmark)
@@ -36,9 +35,12 @@
                                     <td>{{$bookmark->title}}</td>
                                     <td><img src="/uploads/bookmarks/{{$bookmark->thumbnail}}"
                                              style="width:100px; height:100px;"></td>
-                                    @role('Admin')
+                                    @if($bookmark->status == 1)
+                                        <td>Public</td>
+                                    @else
+                                        <td>Private</td>
+                                    @endif
                                     <td>    {{$bookmark->user->name}}</td>
-                                    @endrole
                                     <td>
                                         <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
                                     </td>

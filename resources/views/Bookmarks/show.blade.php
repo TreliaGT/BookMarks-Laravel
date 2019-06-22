@@ -19,9 +19,8 @@
                                 <th>URL</th>
                                 <th>thumbnail</th>
                                 <th>Description</th>
-                                @role('Admin')
                                 <th>User</th>
-                                @endrole
+                                <th>Status</th>
                             </tr>
                             <tr>
                                 <td>{{$bookmark->title}}</td>
@@ -29,11 +28,14 @@
                                 <td><img src="/uploads/bookmarks/{{$bookmark->thumbnail}}"
                                          style="width:100px; height:100px;"></td>
                                 <td>{{$bookmark->description}}</td>
-                                @role('Admin')
                                 <td>{{$bookmark->user->name}} <img
                                             src="/uploads/avatars/{{$bookmark->user->profile->avatar}}"
                                             style="width:30px; height:30px;"></td>
-                                @endrole
+                                @if($bookmark->status == 1)
+                                    <td>Public</td>
+                                @else
+                                    <td>Private</td>
+                                @endif
                             </tr>
                         </table>
                     </div>

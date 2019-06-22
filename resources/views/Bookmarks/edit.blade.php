@@ -23,6 +23,13 @@
                                 <textarea class="form-control" name="description">{{$bookmark->description}}</textarea>
                             </div>
                             <div class="form-group">
+                                <labal for="status">Public/Private</labal>
+                                <select name="status" class="form-control">
+                                    <option value="True">Public</option>
+                                    <option value="False">Private</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <labal for="tag" data-toggle="tooltip" data-placement="top" title="Example: book,marks," style="color:blue;">Tag (Optional)</labal>
                                 <input type="text" name="tag" class="form-control-file" value="{{$bookmark->tagList}}">
                             </div>

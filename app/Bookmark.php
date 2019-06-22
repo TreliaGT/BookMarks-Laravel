@@ -10,7 +10,7 @@ class Bookmark extends Model
     use Taggable;
 
     protected $fillable= [
-        'title', 'url', 'description' , 'thumbnail', 'user_id',
+        'title', 'url', 'description' , 'thumbnail', 'user_id','status',
     ];
 
     public function user(){

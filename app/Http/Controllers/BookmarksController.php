@@ -59,13 +59,18 @@ class BookmarksController extends Controller
             'title' => ['required', 'max:255'],
             'url' => ['required', 'max:512'],
             'description' => ['required'],
-
         ]);
+        if($request->input('status') == "True"){
+            $status = true;
+        }else{
+            $status = false;
+        }
         $bookmark = Bookmark::Create([
             'user_id' => $user->id,
             'title' => $request->input('title'),
             'url' => $request->input('url'),
             'description' => $request->input('description'),
+            'status' => $status,
         ]);
 
         if ($request->hasFile('thumbnail')) {
@@ -120,11 +125,18 @@ class BookmarksController extends Controller
             'description' => ['required'],
 
         ]);
+
+        if($request->input('status') == "True"){
+            $status = true;
+        }else{
+            $status = false;
+        }
+
         $bookmark = BookMark::find($id);
         $bookmark->title = $request->get('title');
         $bookmark->url = $request->get('url');
         $bookmark->description = $request->get('description');
-
+        $bookmark->status = $status;
 
         if ($request->hasFile('thumbnail')) {
             if ($bookmark->thumbnail == 'default.jpg') {
