@@ -49,6 +49,10 @@
                                 @endif
                             @endforeach
                         </table>
+
+                    </div>
+                    <div class="card-footer">
+                        {{ $bookmarks->links() }}
                     </div>
                 </div>
             </div>
