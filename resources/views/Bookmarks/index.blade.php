@@ -30,6 +30,7 @@
                                 <th>Details</th>
                             </tr>
                             @foreach($bookmarks as $bookmark)
+                                @if ($bookmark->status == 1 OR $bookmark->user->id == Auth::user()->id)
                                 <tr>
                                     <td>{{$bookmark->id}}</td>
                                     <td>{{$bookmark->title}}</td>
@@ -45,6 +46,7 @@
                                         <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
                                     </td>
                                 </tr>
+                                @endif
                             @endforeach
                         </table>
                     </div>
