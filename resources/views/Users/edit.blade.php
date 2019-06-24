@@ -42,12 +42,11 @@
                                 @foreach ($roles as $role)
                                     <label class="form-check text-md-right">
                                         <input
-
                                                 type="checkbox"
                                                 name="roles[]"
                                                 value="{{$role->id}}"
                                                 id="{{$role->id}}"
-                                                @if($role->name == $user->role) checked=checked @endif}}
+                                                @if($user->hasRole($role->name)) checked=checked @endif
                                         >{{ $role->name }}
                                     </label>
                                 @endforeach
