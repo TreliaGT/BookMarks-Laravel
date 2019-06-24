@@ -7,9 +7,11 @@
                 <div class="card">
                     <div class="card-header">{{$bookmark->title}}
                         <div class="float-right list-inline nav">
+                            @if($bookmark->user->id == Auth::user()->id)
                             <a href="/Bookmarks/{{$bookmark->id}}/edit" class="nav-link ">Edit</a>
                             <button class="nav-link btn alert-danger"  data-toggle="modal" data-target="#delete">
                                 Delete </button>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body">

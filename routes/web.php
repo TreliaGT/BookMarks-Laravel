@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@Welcome')->name('home');
+Route::get('/', 'HomeController@Welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware(['auth', 'role:Admin|User|UserAdmin|Ban'])->name('home');
 Route::get('/Bookmarks/AdminView', 'AdminUserController@AdminViewBookmarks')->middleware(['auth', 'role:Admin' ]);
 
 Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admin|UserAdmin']);
