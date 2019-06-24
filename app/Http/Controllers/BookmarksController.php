@@ -30,17 +30,9 @@ class BookmarksController extends Controller
     public function search(Request $request)
     {
         $user = Auth::user();
-        if($user->hasRole('Admin')) {
-            $q = $request->input('q');
-            $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%')->get();
-        }else{
-            $q = $request->input('q');
-            $bookmarks = Bookmark::where([
-                ['title', 'LIKE', '%' . $q . '%'],
-                ['user_id', '=', $user->id],
-           ])->orWhere('status', '=', 1)->get();
-        }
-            return view('Bookmarks.index', compact('bookmarks'));
+        $q = $request->input('q');
+        $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%')->get();
+        return view('Bookmarks.index', compact('bookmarks'));
     }
 
     /**

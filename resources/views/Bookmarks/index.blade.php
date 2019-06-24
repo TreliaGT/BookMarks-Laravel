@@ -45,7 +45,6 @@
                                         <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
                                     </td>
                                 </tr>
-
                             @endforeach
                         </table>
                     </div>
