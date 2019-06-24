@@ -13,7 +13,7 @@ class UsersSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'email' => 'admin@localhost.com',
             'password' => bcrypt('APassword!'),
         ]);
 
@@ -23,12 +23,25 @@ class UsersSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'UserAdmin',
-            'email' => 'Useradmin@admin.com',
+            'email' => 'Useradmin@localhost.com',
             'password' => bcrypt('UAPassword!'),
         ]);
 
         DB::table('profiles')->insert([
             'user_id' => 2,
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'SnowWhite',
+            'email' => 'SnowWhite@localhost.com',
+            'password' => bcrypt('SnowWhite!'),
+        ]);
+
+        DB::table('profiles')->insert([
+            'user_id' => 3,
+            'first_name' => 'Snow',
+            'last_name' => 'White',
+            'avatar' => '123456.jpg',
         ]);
 
     }
