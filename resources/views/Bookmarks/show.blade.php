@@ -12,6 +12,10 @@
                             <button class="nav-link btn alert-danger"  data-toggle="modal" data-target="#delete">
                                 Delete </button>
                             @endif
+                            @role('Admin')
+                                <button class="nav-link btn alert-danger"  data-toggle="modal" data-target="#delete">
+                                    Delete </button>
+                            @endrole
                         </div>
                     </div>
                     <div class="card-body">
