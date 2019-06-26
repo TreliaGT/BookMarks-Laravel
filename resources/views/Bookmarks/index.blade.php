@@ -41,7 +41,7 @@
                                     @else
                                         <td>Private</td>
                                     @endif
-                                    <td>    {{$bookmark->user->name}}</td>
+                                    <td>  <a href="/users/{{$bookmark->user->id}}">{{$bookmark->user->name}}</a>  </td>
                                     <td>
                                         <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
                                     </td>

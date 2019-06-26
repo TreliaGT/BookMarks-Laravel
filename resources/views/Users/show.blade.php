@@ -9,9 +9,11 @@
                         @if($user->name == 'Admin')
 
                          @else
+                            @role('Admin|UserAdmin')
                         <div class="float-right list-inline nav">
                             <a href="/users/{{$user->id}}/edit" class="nav-link ">Edit</a>
                         </div>
+                            @endrole
                         @endif
                     </div>
                     <div class="card-body">
@@ -49,11 +51,12 @@
                     <div class="card-body">
                         <ul>
                             @foreach($user->profile->social_media as $social_media)
-                                <li> {{$social_media->name}}: {{$social_media->url}}   </li>
+                                <li> {{$social_media->name}}: <a href="{{$social_media->url}}"> {{$social_media->url}} </a>  </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 @endsection

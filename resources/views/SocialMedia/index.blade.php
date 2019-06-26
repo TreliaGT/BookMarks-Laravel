@@ -29,7 +29,7 @@
                         @foreach($profile->social_media as $social_media)
                                             <div>
                                                 <ul>
-                                                    <li> {{$social_media->name}}: {{$social_media->url}}
+                                                    <li> {{$social_media->name}}: <a href="{{$social_media->url}}">{{$social_media->url}}</a>
                                         <button class="btn alert-danger" data-toggle="modal" data-target="#delete">
                                             Delete
                                         </button>
