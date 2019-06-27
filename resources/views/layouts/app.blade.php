@@ -38,7 +38,7 @@
                     <li> <a class="nav-link" href="{{ url('/users') }}">Users List</a></li>
                     @endrole
                     @role('Admin')
-                    <li> <a class="nav-link" href="{{ url('/Bookmarks/AdminView') }}">BookMarks</a></li>
+                    <li> <a class="nav-link" href="{{ url('/Bookmarks') }}">BookMarks</a></li>
                     <li> <a class="nav-link" href="{{ url('/tags') }}">Tags</a></li>
                     @endrole
                     @role('User')

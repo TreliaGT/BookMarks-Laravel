@@ -30,6 +30,7 @@
                                 <th>Details</th>
                             </tr>
                             @foreach($bookmarks as $bookmark)
+                                @role('User')
                                 @if ($bookmark->status == 1 OR $bookmark->user->id == Auth::user()->id)
                                 <tr>
                                     <td>{{$bookmark->id}}</td>
@@ -47,9 +48,25 @@
                                     </td>
                                 </tr>
                                 @endif
+                                 @else
+                                    <tr>
+                                        <td>{{$bookmark->id}}</td>
+                                        <td>{{$bookmark->title}}</td>
+                                        <td><img src="/uploads/bookmarks/{{$bookmark->thumbnail}}"
+                                                 style="width:100px; height:100px;"></td>
+                                        @if($bookmark->status == 1)
+                                            <td>Public</td>
+                                        @else
+                                            <td>Private</td>
+                                        @endif
+                                        <td>  <a href="/users/{{$bookmark->user->id}}">{{$bookmark->user->name}}</a>  </td>
+                                        <td>
+                                            <a href="/Bookmarks/{{$bookmark->id}}">View Details</a>
+                                        </td>
+                                    </tr>
+                                @endrole
                             @endforeach
                         </table>
-
                     </div>
                     <div class="card-footer">
                         {{ $bookmarks->links() }}

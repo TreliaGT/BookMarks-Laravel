@@ -43,13 +43,7 @@ class AdminUserController extends Controller
         );
     }
 
-    /**
-     * Shows all bookmarks
-     */
-    public function AdminViewBookmarks(){
-        $bookmarks = Bookmark::all();
-        return view('Bookmarks.index', compact('bookmarks'));
-    }
+
     /**
      * Display the specified resource.
      *
@@ -141,7 +135,7 @@ class AdminUserController extends Controller
         $user = User::FindOrFail($id);
         $token = Password::getRepository()->create($user);
         $user->sendPasswordResetNotification($token);
-        
+
         return redirect('/users');
     }
 }
