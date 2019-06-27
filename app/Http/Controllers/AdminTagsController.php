@@ -60,4 +60,22 @@ class AdminTagsController extends Controller
         return redirect('/tags');
     }
 
+    /**
+     * Api for showing all of the Tags
+     * @return bookmarks[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function apiAll()
+    {
+        dd(Tag::all());
+        return Tag::all();
+    }
+    /**
+     * Api for showing only one Tags
+     * @param $id
+     * @return mixed
+     */
+    public function apiOne($id)
+    {
+        return Tag::findOrFail($id);
+    }
 }

@@ -18,7 +18,7 @@ class BookmarksController extends Controller
     public function index()
     {
         $userid = Auth::user();
-        $bookmarks = Bookmark::Where('user_id', '=', $userid->id)->orWhere('status', '=', 1)->paginate(15);
+        $bookmarks = Bookmark::All();
         return view('Bookmarks.index', compact('bookmarks'));
     }
 
@@ -31,7 +31,7 @@ class BookmarksController extends Controller
     {
         $user = Auth::user();
         $q = $request->input('q');
-        $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%')->paginate(15);
+        $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%');
         return view('Bookmarks.index', compact('bookmarks'));
     }
 
@@ -174,4 +174,24 @@ class BookmarksController extends Controller
         $book->delete();
         return redirect('/Bookmarks');
     }
+
+    /**
+     * Api for showing all of the bookmarks
+     * @return bookmarks[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function apiAll()
+    {
+        dd(Bookmark::all());
+        return Bookmark::all();
+    }
+    /**
+     * Api for showing only one bookmarks
+     * @param $id
+     * @return mixed
+     */
+    public function apiOne($id)
+    {
+        return Bookmark::findOrFail($id);
+    }
+
 }

@@ -10,6 +10,7 @@ use App\profile;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+
 class AdminUserController extends Controller
 {
     /**

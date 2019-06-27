@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('bookmark', 'BookmarksController@apiAll');
+Route::get('bookmark/{id}', 'BookmarksController@apiOne');
+
+Route::get('Tag', 'AdminTagsController@apiAll');
+Route::get('Tag/{id}', 'AdminTagsController@apiOne');
