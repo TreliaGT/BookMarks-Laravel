@@ -29,14 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         return view('Pages.home' );
     }
 
-    public function Welcome(){
-        $bookmarks = Bookmark::Where('status', '=', 1)->take(5)->get();
-        return view('Pages.welcome', compact('bookmarks'));
-    }
 
 
 }

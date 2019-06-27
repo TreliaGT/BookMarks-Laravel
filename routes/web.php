@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@Welcome');
+use App\Bookmark;
+
+Route::get('/', function () {
+    $bookmarks = Bookmark::Where('status', '=', 1)->take(5)->get();
+    return view('Pages.welcome', compact('bookmarks'));
+});
 
 Auth::routes();
 
