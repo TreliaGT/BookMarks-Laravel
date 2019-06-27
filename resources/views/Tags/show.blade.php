@@ -6,10 +6,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{$tag->name}}
+                        @role('Admin')
                         <div class="float-right list-inline nav">
                             <button class="nav-link btn alert-danger"  data-toggle="modal" data-target="#delete">
                                 Delete </button>
                         </div>
+                        @endrole
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-responsive-sm table-responsive-md">
