@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <ul>
                                 @foreach($bookmark->tags as $tags)
-                                    <li>{{$tags->name}}</li>
+                                    <li><a href="/tags/{{$tags->tag_id}}">{{$tags->name}}</a> </li>
                                 @endforeach
                             </ul>
                         </div>

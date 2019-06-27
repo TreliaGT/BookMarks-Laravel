@@ -7,9 +7,19 @@
                 <div class="card">
                     <div class="card-header">Tags List
                         <div class="float-right list-inline nav">
+                            <form action="/tags/search" method="POST" role="search">
+                                {{ csrf_field() }}
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="q"
+                                           placeholder="Search Tags">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </form>
+                            @role('Admin')
                             <button class="nav-link btn alert-danger" data-toggle="modal" data-target="#delete">
                                 Delete all Unused Tags
                             </button>
+                            @endrole
                         </div>
                     </div>
                     <div class="card-body">

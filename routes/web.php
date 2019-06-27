@@ -27,9 +27,10 @@ Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admi
 Route::resource('profile/social', 'socialMediaController')->middleware(['auth', 'role:Admin|User']);
 Route::resource('profile', 'ProfileController')->middleware(['auth', 'role:Admin|User|UserAdmin']);
 Route::resource('/Bookmarks', 'BookmarksController')->middleware(['auth', 'role:Admin|User']);
-Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin']);
+Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin|User']);
 
 Route::post('/tags/deleteAll', 'AdminTagsController@DeleteAll')->middleware(['auth', 'role:Admin']);
-Route::post('Bookmarks/search', 'BookmarksController@search')->middleware(['auth', 'role:Admin|User']);
+Route::post('/Bookmarks/search', 'BookmarksController@search')->middleware(['auth', 'role:Admin|User']);
+Route::post('/tags/search', 'AdminTagsController@search')->middleware(['auth', 'role:Admin|User']);
 Route::post('/users/search', 'AdminUserController@search')->middleware(['auth', 'role:Admin|UserAdmin']);
 Route::post('/users/resetlink/{id}', 'AdminUserController@reset')->middleware(['auth', 'role:Admin|UserAdmin']);

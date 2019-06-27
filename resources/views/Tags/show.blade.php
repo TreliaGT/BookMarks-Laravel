@@ -25,6 +25,16 @@
                         </table>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-header">Bookmarks</div>
+                    <div class="card-body">
+                        <ul>
+                        @foreach($bookmarks as $bookmark)
+                                <li><a href="/Bookmarks/{{$bookmark->id}}">{{$bookmark->title}}</a> <img src="/uploads/bookmarks/{{$bookmark->thumbnail}}" style="width:30px; height:30px;"> <a href="{{$bookmark->url}}">{{$bookmark->url}} </a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
 
     <div class="modal fade" id="delete">
         <div class="modal-dialog">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Cviebrock\EloquentTaggable\Models\Tag;
 use Cviebrock\EloquentTaggable\Services\TagService;
 use Illuminate\Http\Request;
+use App\Bookmark;
 
 class AdminTagsController extends Controller
 {
@@ -15,7 +16,7 @@ class AdminTagsController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::paginate(15);
        return view('Tags.index', compact('tags'));
     }
 
@@ -28,10 +29,22 @@ class AdminTagsController extends Controller
     public function show($id)
     {
         $tag = Tag::FindorFail($id);
-        return view('Tags.show', compact('tag'));
+       $bookmarks = Bookmark::withAnyTags($tag->name)->get();
+        return view('Tags.show', compact('tag', 'bookmarks'));
     }
 
+    /**
+     * Search user function
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        $q = $request->input('q');
+        $tags = Tag::where('name', 'LIKE', '%' . $q . '%')->paginate(15);
 
+        return view('Tags.index', compact('tags'));
+    }
 
     /**
      * Remove the specified resource from storage.

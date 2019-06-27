@@ -9,7 +9,7 @@
                         <div class="float-right list-inline nav">
                             <a href="/Bookmarks/create" class="nav-link "> Create New Bookmark</a>
 
-                            <form action="Bookmarks/search" method="POST" role="search">
+                            <form action="/Bookmarks/search" method="POST" role="search">
                                 {{ csrf_field() }}
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="q"
