@@ -34,7 +34,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'SnowWhite',
             'email' => 'SnowWhite@localhost.com',
-            'password' => bcrypt('SnowWhite!'),
+            'password' => bcrypt('SnowWhite'),
         ]);
 
         DB::table('profiles')->insert([
@@ -42,6 +42,18 @@ class UsersSeeder extends Seeder
             'first_name' => 'Snow',
             'last_name' => 'White',
             'avatar' => '123456.jpg',
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'EvilQueen',
+            'email' => 'EvilQueen@localhost.com',
+            'password' => bcrypt('EvilQueen'),
+        ]);
+
+        DB::table('profiles')->insert([
+            'user_id' => 4,
+            'first_name' => 'Evil',
+            'last_name' => 'Queen',
         ]);
 
     }

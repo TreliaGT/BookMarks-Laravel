@@ -181,7 +181,6 @@ class BookmarksController extends Controller
      */
     public function apiAll()
     {
-        dd(Bookmark::all());
         return Bookmark::all();
     }
     /**

@@ -18,6 +18,12 @@ class BookmarkSeeder extends Seeder
             'status'=> 1,
             'user_id' => 3,
         ]);
-
+        DB::table('bookmarks')->insert([
+            'title' => 'Bookmarks-lavavel',
+            'url' => 'https://github.com/TreliaGT/BookMarks-Laravel',
+            'description' => 'Github Cross-links assessment',
+            'status'=> 0,
+            'user_id' => 3,
+        ]);
     }
 }
