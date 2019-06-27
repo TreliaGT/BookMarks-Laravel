@@ -9,7 +9,7 @@ use App\User;
 use App\profile;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Password;
 
 class AdminUserController extends Controller
 {
@@ -134,8 +134,14 @@ class AdminUserController extends Controller
     /**
      * Password reset
      * @param $id
+     * @return \Illuminate\Http\Response
      */
     public function reset($id){
+
+        $user = User::FindOrFail($id);
+        $token = Password::getRepository()->create($user);
+        $user->sendPasswordResetNotification($token);
         
+        return redirect('/users');
     }
 }

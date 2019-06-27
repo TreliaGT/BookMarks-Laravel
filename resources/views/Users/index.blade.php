@@ -22,10 +22,9 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Username</th>
-                                <th>Name</th>
-                                <th>Email</th>
                                 <th>Role</th>
                                 <th>Details</th>
+                                <th>ResetPasswordLink</th>
                                 <th>Delete</th>
                             </tr>
                             @foreach ($users as $user)
@@ -35,11 +34,14 @@
                                              style="width:30px; height:30px;">
                                         {{$user->name}}
                                     </td>
-                                    <td><p> {{$user->profile->first_name}}  {{$user->profile->last_name }}</p></td>
-                                    <td><p>{{$user->email}}</p>
                                     <td>{{ $user->roles()->pluck('name')->implode(' ') }}</td>
                                     <td>
                                         <a href="/users/{{$user->id}}">View Details</a>
+                                    </td>
+                                    <td>
+                                        <button class="btn alert-primary" data-toggle="modal" data-target="#Reset">
+                                            Reset Link
+                                        </button>
                                     </td>
                                     @if($user->name != 'Admin')
                                         <td>
@@ -66,7 +68,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete User</h4>
+                    <h4 class="modal-title">Delete</h4>
                     <button type="button" class="close" data-dismiss="modal">×</button>
                 </div>
 
@@ -81,6 +83,32 @@
                         {{method_field('DELETE')}}
                         {{csrf_field()}}
                         <input type="submit" class="button alert float-right" value="Delete"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Reset">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Send password reset link</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Are you sure you wish to reset the password of  this user?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <form action="{{url('/users/resetlink', [$user->id])}}" method="POST">
+                        {{csrf_field()}}
+                        <input type="submit" class="button alert float-right" value="Reset"/>
                     </form>
                 </div>
 
