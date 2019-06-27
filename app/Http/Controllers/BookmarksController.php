@@ -18,7 +18,7 @@ class BookmarksController extends Controller
     public function index()
     {
         $userid = Auth::user();
-        $bookmarks = Bookmark::All();
+        $bookmarks = Bookmark::paginate(15);
         return view('Bookmarks.index', compact('bookmarks'));
     }
 
@@ -31,7 +31,7 @@ class BookmarksController extends Controller
     {
         $user = Auth::user();
         $q = $request->input('q');
-        $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%');
+        $bookmarks = Bookmark::where('title', 'LIKE', '%' . $q . '%')->paginate(15);
         return view('Bookmarks.index', compact('bookmarks'));
     }
 
