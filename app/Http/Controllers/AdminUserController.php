@@ -20,7 +20,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::with('profile')->paginate(15);
+        $users = User::with('profile')->paginate(10);
 
         $roles = Role::get();
         return view(
@@ -36,7 +36,7 @@ class AdminUserController extends Controller
     public function search(Request $request)
     {
         $q = $request->input('q');
-        $users = User::where('name', 'LIKE', '%' . $q . '%')->get();
+        $users = User::where('name', 'LIKE', '%' . $q . '%')->paginate(10);
         $roles = Role::get();
         return view(
             'Users.index', compact('users', 'roles')
