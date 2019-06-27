@@ -33,3 +33,4 @@ Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin
 Route::post('/tags/deleteAll', 'AdminTagsController@DeleteAll')->middleware(['auth', 'role:Admin']);
 Route::post('Bookmarks/search', 'BookmarksController@search')->middleware(['auth', 'role:Admin|User']);
 Route::post('/users/search', 'AdminUserController@search')->middleware(['auth', 'role:Admin|UserAdmin']);
+Route::post('/users/resetlink/{id}', 'AdminUserController@reset')->middleware(['auth', 'role:Admin|UserAdmin']);

@@ -130,4 +130,12 @@ class AdminUserController extends Controller
 
         return redirect('/users');
     }
+
+    /**
+     * Password reset
+     * @param $id
+     */
+    public function reset($id){
+        
+    }
 }

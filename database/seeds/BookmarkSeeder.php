@@ -18,6 +18,6 @@ class BookmarkSeeder extends Seeder
             'status'=> 1,
             'user_id' => 3,
         ]);
-        
+
     }
 }
