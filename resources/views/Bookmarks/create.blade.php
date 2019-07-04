@@ -7,19 +7,30 @@
                 <div class="card">
                     <div class="card-header">Create Book Mark</div>
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form  enctype="multipart/form-data" method="post" action="/Bookmarks" name="addSocialMedia">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <labal for="title">Title</labal>
-                                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                                <input type="text" name="title" class="form-control"  value="{{ old('title') }}">
                             </div>
                             <div class="form-group">
                                 <labal for="url">Url</labal>
-                                <input type="url" name="url" class="form-control" value="{{ old('url') }}">
+                                <input type="url" name="url" class="form-control"  value="{{ old('url') }}">
+
                             </div>
                             <div class="form-group">
                                 <labal for="description">Description</labal>
-                                <textarea class="form-control" name="description">{{ old('description') }}</textarea>
+                                <textarea class="form-control " name="description" >{{ old('description') }}</textarea>
+
                             </div>
                             <div class="form-group">
                                 <labal for="status">Public/Private</labal>

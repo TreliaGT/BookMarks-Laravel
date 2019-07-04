@@ -42,7 +42,7 @@ class ProfileController extends Controller
             }
         }
 
-        return redirect('Profile.profile');
+        return redirect('/profile');
     }
 
     /**

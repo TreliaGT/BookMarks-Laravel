@@ -7,6 +7,15 @@
                 <div class="card">
                     <div class="card-header">Create Book Mark</div>
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form enctype="multipart/form-data" method="post" action="{{route('Bookmarks.update', $bookmark->id)}}" name="editBookmark">
                             @method('PATCH')
                             @csrf

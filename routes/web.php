@@ -25,7 +25,7 @@ Route::get('/users/{id}' , 'AdminUserController@show')->middleware(['auth', 'rol
 
 Route::resource('/users', 'AdminUserController')->middleware(['auth', 'role:Admin|UserAdmin']);
 Route::resource('profile/social', 'socialMediaController')->middleware(['auth', 'role:Admin|User']);
-Route::resource('profile', 'ProfileController')->middleware(['auth', 'role:Admin|User|UserAdmin']);
+Route::resource('/profile', 'ProfileController')->middleware(['auth', 'role:Admin|User|UserAdmin']);
 Route::resource('/Bookmarks', 'BookmarksController')->middleware(['auth', 'role:Admin|User']);
 Route::resource('/tags', 'AdminTagsController')->middleware(['auth', 'role:Admin|User']);
 

@@ -53,8 +53,6 @@ class BookmarksController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $user = Auth::user();
         $validated = request()->validate([
             'title' => ['required', 'max:255'],
